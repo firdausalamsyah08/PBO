@@ -1,0 +1,20 @@
+@startuml diagramdaus
+
+class AlatTulis {
+    - nama: String
+    - stok: int
+    - hargaSatuan: int
+    - totalHarga: int
+
+    + setData(nama: String, stok: int, hargaSatuan: int): void
+    + getData(): void
+    + getTotalHarga(): int
+}
+
+class Main {
+    + main(args: String[]): void
+}
+
+Main --> AlatTulis : "menggunakan"
+
+@enduml

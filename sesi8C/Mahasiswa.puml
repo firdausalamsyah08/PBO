@@ -1,0 +1,39 @@
+@startuml diagramc
+
+package sesi8C {
+
+    class Kelas {
+        - String namaKelas
+        - String kodeKelas
+        - List<Mahasiswa> mahasiswaList
+
+        + Kelas(String namaKelas, String kodeKelas)
+        + String getNamaKelas()
+        + void setNamaKelas(String namaKelas)
+        + String getKodeKelas()
+        + void setKodeKelas(String kodeKelas)
+        + List<Mahasiswa> getMahasiswaList()
+        + void addMahasiswa(Mahasiswa mahasiswa)
+        + void displayInfo()
+    }
+
+    class Mahasiswa {
+        - String nama
+        - String nim
+        - int usia
+        - Jurusan jurusan
+        - List<Kelas> kelasList
+
+        + Mahasiswa(String nama, String nim, int usia, Jurusan jurusan)
+        + String getNama()
+        + void setNama(String nama)
+        + List<Kelas> getKelasList()
+        + void addKelas(Kelas kelas)
+        + void displayInfo()
+    }
+
+    Kelas "1" --> "*" Mahasiswa : has-many
+    Mahasiswa "1" --> "*" Kelas : has-many
+}
+
+@enduml

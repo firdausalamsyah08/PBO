@@ -1,0 +1,35 @@
+@startuml diagramkita
+package sesi8B {
+    class Jurusan {
+        - String nama
+        - String kode
+
+        + Jurusan(String nama, String kode)
+        + String getNama()
+        + void setNama(String nama)
+        + String getKode()
+        + void setKode(String kode)
+        + void displayInfo()
+    }
+
+    class Mahasiswa {
+        - String nama
+        - String nim
+        - int usia
+        - Jurusan jurusan
+
+        + Mahasiswa(String nama, String nim, int usia, Jurusan jurusan)
+        + String getNama()
+        + void setNama(String nama)
+        + String getNim()
+        + void setNim(String nim)
+        + int getUsia()
+        + void setUsia(int usia)
+        + Jurusan getJurusan()
+        + void setJurusan(Jurusan jurusan)
+        + void displayInfo()
+    }
+
+    Mahasiswa --> Jurusan : "has-a"
+}
+@enduml

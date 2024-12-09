@@ -1,0 +1,12 @@
+@startuml diagram
+class MenuRestoran {
+    - String nama
+    - int jumlah
+    - int hargaSatuan
+    - int totalHarga
+
+    + void setData(String nama, int jumlah, int hargaSatuan)
+    + void getData()
+    + int getTotalHarga()
+}
+@enduml

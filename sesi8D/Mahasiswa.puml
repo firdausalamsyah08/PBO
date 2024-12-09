@@ -1,0 +1,44 @@
+@startuml diagramd
+class Dosen {
+    - String nama
+    - String nip
+    - List<Mahasiswa> mahasiswaWaliList
+    + Dosen(String nama, String nip)
+    + String getNama()
+    + String getNip()
+    + List<Mahasiswa> getMahasiswaWaliList()
+    + void tambahMahasiswa(Mahasiswa mahasiswa)
+    + void displayInfo()
+}
+
+class Mahasiswa {
+    - String nama
+    - String nim
+    - Dosen dosenWali
+    - List<MataKuliah> mataKuliahList
+    + Mahasiswa(String nama, String nim)
+    + String getNama()
+    + String getNim()
+    + Dosen getDosenWali()
+    + List<MataKuliah> getMataKuliahList()
+    + void setDosenWali(Dosen dosenWali)
+    + void addMataKuliah(MataKuliah mataKuliah)
+    + void displayInfo()
+}
+
+class MataKuliah {
+    - String nama
+    - String kode
+    - List<Mahasiswa> mahasiswaList
+    + MataKuliah(String nama, String kode)
+    + String getNama()
+    + String getKode()
+    + List<Mahasiswa> getMahasiswaList()
+    + void addMahasiswa(Mahasiswa mahasiswa)
+    + void displayInfo()
+}
+
+Dosen "1" -- "0..*" Mahasiswa : "mengajar"
+Mahasiswa "0..*" -- "0..*" MataKuliah : "mengambil"
+Mahasiswa "1" -- "1" Dosen : "dosen wali"
+@enduml
